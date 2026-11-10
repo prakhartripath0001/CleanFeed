@@ -96,42 +96,51 @@ There are three distinct user roles within the system:
 
 Before running the application, make sure you have the following installed:
 
-- Node.js
-- MongoDB or MongoDB Atlas account
+- Node.js and npm
+- MongoDB running locally, or a MongoDB Atlas connection string
 
 ### Installation
 
-1. Clone the repository
+1. Clone the repository and enter the project directory:
 
 ```bash
 git clone https://github.com/nz-m/SocialEcho.git
+cd SocialEcho
 ```
-2. Go to the project directory and install dependencies for both the client and server
+
+2. Install the client and server dependencies:
 
 ```bash
-cd client
-npm install
+cd client && npm ci
+cd ../server && npm ci
 ```
+
+3. Configure the environment files:
 
 ```bash
-cd server
-npm install
+cp server/.env.example server/.env
+cp client/.env.example client/.env
 ```
 
-3. Create a `.env` file in both the `client` and `server` directories and add the environment variables as shown in the `.env.example` files.
-4. Start the server
+Set `MONGODB_URI` in `server/.env` to your MongoDB connection string. The example includes defaults for the local client/server URLs and port. Add valid `SECRET`, `REFRESH_SECRET`, and `CRYPTO_KEY` values before using authentication features. Email and content-moderation API credentials are optional and are only needed for those integrations.
+
+### Run and test in a browser
+
+Start the backend in one terminal:
 
 ```bash
 cd server
 npm start
 ```
 
-5. Start the client
+Start the client in another terminal:
 
 ```bash
 cd client
 npm start
 ```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser. The client calls the backend at `http://localhost:4000`; keep the backend running while testing. The backend requires a reachable MongoDB instance.
 
 
 ### Configuration
@@ -179,4 +188,3 @@ https://youtu.be/Tmncayg7FeU
 ## License
 
 This project is licensed under the [MIT License](https://github.com/nz-m/SocialEcho/blob/main/LICENSE).
-
