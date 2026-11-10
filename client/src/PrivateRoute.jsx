@@ -1,5 +1,5 @@
 import { useMemo, useEffect, useState } from "react";
-import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useLocation, useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setInitialAuthState } from "./redux/actions/authActions";
 import Navbar from "./components/shared/Navbar";

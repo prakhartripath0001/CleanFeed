@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { CiLocationOn } from "react-icons/ci";
 const PublicProfileCard = ({ user }) => {
   const followingSince = new Date(user.followingSince).toLocaleString("en-US", {

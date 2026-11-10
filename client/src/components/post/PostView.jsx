@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { HiOutlineArchiveBox } from "react-icons/hi2";
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router";
 import { getCommunityAction } from "../../redux/actions/communityActions";
 import Save from "./Save";
 import Like from "./Like";

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 
 import CommonLoading from "../components/loader/CommonLoading";
 import CommunityRightbar from "../components/community/Rightbar";

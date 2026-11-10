@@ -1,7 +1,7 @@
 import { useEffect, useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { getComMembersAction } from "../../redux/actions/communityActions";
 import UnbanUserModal from "../modals/UnbanUserModal";
 import { IoTimerOutline } from "react-icons/io5";

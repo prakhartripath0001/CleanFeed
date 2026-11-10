@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import axios from "axios";
 const BASE_URL = import.meta.env.VITE_API_URL;
 

@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, lazy, useMemo, Suspense } from "react";
 import { getPostAction, clearPostAction } from "../redux/actions/postActions";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import CommonLoading from "../components/loader/CommonLoading";
 import FallbackLoading from "../components/loader/FallbackLoading";
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import {
   HiOutlineChatBubbleOvalLeft,

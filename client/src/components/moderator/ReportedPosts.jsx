@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getReportedPostsAction } from "../../redux/actions/communityActions";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import ReportedPost from "./ReportedPost";
 import CommonLoading from "../loader/CommonLoading";
 const ReportedPosts = () => {

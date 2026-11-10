@@ -5,7 +5,7 @@ import Settings from "../components/admin/Settings";
 import CommunityManagement from "../components/admin/CommunityManagement";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../redux/actions/adminActions";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 const AdminPanel = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();

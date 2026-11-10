@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComModsAction } from "../../redux/actions/communityActions";
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { IoTimerOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 

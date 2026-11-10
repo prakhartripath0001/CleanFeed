@@ -2,7 +2,7 @@ import { useEffect, useState, memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getComMembersAction } from "../../redux/actions/communityActions";
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import BanUserModal from "../modals/BanUserModal";
 import { CiLocationOn } from "react-icons/ci";
 import { IoTimerOutline } from "react-icons/io5";

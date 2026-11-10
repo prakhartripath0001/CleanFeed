@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useMemo } from "react";
 import { getOwnPostAction } from "../redux/actions/postActions";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 import CommonLoading from "../components/loader/CommonLoading";
 
 import PostView from "../components/post/PostView";

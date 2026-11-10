@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 import { useEffect } from "react";
 import { clearPostAction, getPostAction } from "../redux/actions/postActions";
 import { useSelector, useDispatch } from "react-redux";

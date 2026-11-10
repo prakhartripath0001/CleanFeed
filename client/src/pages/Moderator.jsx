@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import CommonLoading from "../components/loader/CommonLoading";
 import MainSection from "../components/moderator/MainSection";
 import ModeratorsList from "../components/moderator/ModeratorsList";

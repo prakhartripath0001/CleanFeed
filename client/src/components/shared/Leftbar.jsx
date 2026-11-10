@@ -1,5 +1,5 @@
 import { useMemo, useEffect, memo } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { getJoinedCommunitiesAction } from "../../redux/actions/communityActions";
 import {

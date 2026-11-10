@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { CiEdit, CiLocationOn } from "react-icons/ci";
 import { GrContactInfo } from "react-icons/gr";
 import { useState } from "react";

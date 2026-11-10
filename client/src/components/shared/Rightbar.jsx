@@ -5,7 +5,7 @@ import {
   getPublicUsersAction,
   followUserAndFetchData,
 } from "../../redux/actions/userActions";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router";
 import JoinModal from "../modals/JoinModal";
 import { BsPersonPlusFill } from "react-icons/bs";
 import { IoIosPeople, IoMdPeople } from "react-icons/io";

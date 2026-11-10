@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import LoadingSpinner from "../loader/ButtonLoadingSpinner";
 import { leaveFetchData } from "../../redux/actions/communityActions";
