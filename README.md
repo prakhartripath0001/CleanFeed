@@ -2,6 +2,8 @@
 
 A social networking platform with automated content moderation and context-based authentication system.
 
+![Clean Feed sign-in screen](resources/clean-feed-sign-in.png)
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -75,7 +77,6 @@ There are three distinct user roles within the system:
 - Passport.js
 - Nodemailer
 - Crypto-js
-- Azure Blob Storage
 - Flask
 - Hugging Face Transformers
 
@@ -90,65 +91,82 @@ There are three distinct user roles within the system:
 
 ### Prerequisites
 
-Before running the application, make sure you have the following installed:
+For the local setup, install:
 
-- Node.js and npm
-- MongoDB running locally, or a MongoDB Atlas connection string
+- Node.js 24+ and npm
+- Docker, or a local MongoDB 7 installation
 
 ### Installation
 
-1. Clone the repository and enter the project directory:
+1. Clone the repository into a Clean Feed directory:
 
 ```bash
-git clone https://github.com/nz-m/SocialEcho.git
-cd SocialEcho
+git clone https://github.com/nz-m/SocialEcho.git clean-feed
+cd clean-feed
 ```
 
 2. Install the client and server dependencies:
 
 ```bash
-cd client && npm ci
-cd ../server && npm ci
+cd client
+npm ci
+cd ../server
+npm ci
+cd ..
 ```
 
-3. Configure the environment files:
+3. Start a local MongoDB database in Docker:
+
+```bash
+docker run --name clean-feed-mongodb -p 27017:27017 -d mongo:7
+```
+
+If you already have MongoDB running locally, you can skip this step. To start the Docker database again after stopping it, run `docker start clean-feed-mongodb`.
+
+4. Configure the environment files:
 
 ```bash
 cp server/.env.example server/.env
 cp client/.env.example client/.env
 ```
 
-Set `MONGODB_URI` in `server/.env` to your MongoDB connection string. The example includes defaults for the local client/server URLs and port. Add valid `SECRET`, `REFRESH_SECRET`, and `CRYPTO_KEY` values before using authentication features. Email and content-moderation API credentials are optional and are only needed for those integrations.
+The server example uses the local database `db_clean_feed`. Set unique values for `SECRET`, `REFRESH_SECRET`, and `CRYPTO_KEY` in `server/.env`. They can be generated with:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
+
+Run this command separately for each secret. Local development does not require email credentials or external content-moderation API keys.
 
 ### Run and test in a browser
 
-Start the backend in one terminal:
+Start the backend from the `server` directory in one terminal:
 
 ```bash
 cd server
 npm start
 ```
 
-Start the client in another terminal:
+Start the frontend from the `client` directory in another terminal:
 
 ```bash
 cd client
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser. The client calls the backend at `http://localhost:4000`; keep the backend running while testing. The backend requires a reachable MongoDB instance.
+Open [http://localhost:3000](http://localhost:3000) in your browser. The frontend calls the local API at `http://localhost:4000`; keep MongoDB and both development servers running while using the app.
 
 
 ### Configuration
 
-Run the `admin_tool.sh` script from the server directory with permissions for executing the script. This script is used for configuring the admin account, creating the initial communities, and other settings.
+Admin setup is optional for general user registration. To configure an admin account and initialize communities, run `./admin_tool.sh` from the `server` directory after configuring `server/.env` and starting MongoDB.
 ```bash
 ./admin_tool.sh
 ``` 
 
 #### `.env` Variables
 
-For email service of context-based authentication, the following variables are required:
+Email verification and suspicious-login emails are optional. Configure these values only if you want to send email:
 
 ```bash
 EMAIL=
@@ -156,16 +174,16 @@ PASSWORD=
 EMAIL_SERVICE=
 ```
 
-For content moderation, you need the `PERSPECTIVE_API_KEY` and either the `INTERFACE_API_KEY` or `TEXTRAZOR_API_KEY`. Visit the following links to obtain the API keys:
+External content-moderation providers are optional. Configure the provider keys in `server/.env` only if you want to use those services:
 
 - [Perspective API](https://developers.perspectiveapi.com/s/docs-get-started)
 - [TextRazor API](https://www.textrazor.com/)
 - [Hugging Face Interface API](https://huggingface.co/facebook/bart-large-mnli)
 
-If you prefer, the Flask server can be run locally as an alternative to using the Hugging Face Interface API or TextRazor API. Refer to the `classifier_server` directory for more information.
+The Flask classifier can also run locally as an alternative to the hosted classification APIs. It downloads the model the first time it runs; see [classifier_server/Readme.md](./classifier_server/Readme.md).
 
 
->**Note:** Configuration for context-based authentication and content moderation features are **_not mandatory_** to run the application. However, these features will not be available if the configuration is not provided.
+> **Note:** Local MongoDB is required. Email delivery and external content-moderation APIs are optional and are not needed to run the application locally.
 
 
 ## Usage
@@ -176,7 +194,7 @@ The admin dashboard can be accessed at the `/admin` route. Use the `admin_tool.s
 
 ### Moderator
 
-Moderators have specific email domain (`@mod.socialecho.com`). When registering with an email from this domain, the user is automatically assigned the moderator role. Moderators can be assigned to different communities from the admin dashboard.
+For local testing, registering with an address ending in `@mod.cleanfeed.test` assigns the moderator role. Moderators can be assigned to communities from the admin dashboard.
 
 #### Demo
 https://youtu.be/Tmncayg7FeU

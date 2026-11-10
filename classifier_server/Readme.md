@@ -6,21 +6,21 @@ This Flask app utilizes the Hugging Face Transformers library to classify text i
 
 Before you can run the app, you need to have the following software installed on your machine:
 
-- Python 3.6 or higher
+- Python 3.11 or higher
 - pip package manager
 
 ## Installation
 
 1. Clone the repository to your local machine:
 
-```
-https://github.com/nz-m/SocialEcho.git
+```bash
+git clone https://github.com/nz-m/SocialEcho.git clean-feed
 ```
 
 2. Navigate to the project directory:
 
-```
-cd SocialEcho/classifier_server
+```bash
+cd clean-feed/classifier_server
 ```
 
 3. Install the required Python packages:
@@ -41,18 +41,16 @@ This will start the Flask app on `http://localhost:5000`.
 
 **Note:** Before running the app locally, please note that it requires downloading the model files, which have a size of approximately 1.6GB+. These files will be automatically downloaded when you run the app for the first time.
 
-If you prefer not to download the model files and do not have Python and pip installed, you can use a Docker image to run the app. Follow the steps below:
+If you prefer to run the app in Docker, build the local image:
 
-Pull the Docker image:
-
-```
-docker pull neaz/classifier_api
+```bash
+docker build -t clean-feed-classifier .
 ```
 
-Then run the image using:
+Then run it:
 
-```
-docker run -p 5000:5000 neaz/classifier_api
+```bash
+docker run --rm -p 5000:5000 clean-feed-classifier
 ```
 
 This will start the app in a Docker container, and you can access it on `http://localhost:5000`.

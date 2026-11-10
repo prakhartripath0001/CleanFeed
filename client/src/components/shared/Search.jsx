@@ -6,7 +6,7 @@ import JoinModal from "../modals/JoinModal";
 import { MoonLoader } from "react-spinners";
 import { MdClear } from "react-icons/md";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const Search = () => {
   const navigate = useNavigate();

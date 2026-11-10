@@ -1,4 +1,4 @@
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { refreshTokenAction } from "../redux/actions/refreshTokenAction";
 
 export const tokenMiddleware = (store) => (next) => async (action) => {
@@ -6,7 +6,7 @@ export const tokenMiddleware = (store) => (next) => async (action) => {
     const state = store.getState();
     const token = state.auth?.accessToken;
     if (token) {
-      const expiresIn = jwt_decode(token).exp * 1000 - Date.now();
+      const expiresIn = jwtDecode(token).exp * 1000 - Date.now();
       if (expiresIn < 1800000) {
         const refreshToken = state.auth.refreshToken;
         try {

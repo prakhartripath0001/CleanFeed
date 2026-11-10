@@ -1,10 +1,10 @@
 const rateLimit = require("express-rate-limit");
 const MESSAGE = "Too many requests, please try again later.";
 
-const createLimiter = (windowMs, max, message) => {
+const createLimiter = (windowMs, limit, message) => {
   return rateLimit({
     windowMs,
-    max,
+    limit,
     message: { message: message },
   });
 };

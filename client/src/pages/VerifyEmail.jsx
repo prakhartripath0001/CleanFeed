@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router";
 import axios from "axios";
 import LoadingSpinner from "../components/loader/ButtonLoadingSpinner";
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const VerifyEmail = () => {
   const [loading, setLoading] = useState(false);
