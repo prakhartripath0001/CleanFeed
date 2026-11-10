@@ -5,10 +5,7 @@ const Admin = require("../models/admin.model");
 const { prompt } = require("enquirer");
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     createAdmin();
   })

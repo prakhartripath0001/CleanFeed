@@ -3,18 +3,13 @@
   "name": "Clean Feed",
   "icons": [
     {
-      "src": "android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "android-chrome-512x512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#0789f5",
   "background_color": "#ffffff"
 }

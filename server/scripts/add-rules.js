@@ -12,10 +12,7 @@ const rl = readline.createInterface({
 });
 
 mongoose.set("strictQuery", false);
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI);
 const getCommunityNames = async () => {
   try {
     const communities = await Community.find({}, { name: 1 });

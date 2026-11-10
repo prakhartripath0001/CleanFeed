@@ -14,10 +14,7 @@ const rl = readline.createInterface({
 mongoose.set("strictQuery", false);
 
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     LOG(kleur.green().bold("✅ Connected to MongoDB"));
     start();

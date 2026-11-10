@@ -11,10 +11,7 @@ mongoose.set("strictQuery", false);
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGODB_URI);
 
     LOG(kleur.green().bold("✅ Connected to MongoDB"));
 
